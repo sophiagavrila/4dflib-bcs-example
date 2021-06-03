@@ -15,20 +15,22 @@ import java.util.List;
 
 public class BlackCarService {
     public static void main(String[] args) {
+    	
+    	// This is the actual method that's kicked off when we run our JAR
         System.out.println("Hello 4DF World!"); // Display the string.
 
         // use the  settings within this method to customize the 4DFLib.  Note, everything in this method is optional.
-        setOptionalSettings();
+        setOptionalSettings(); // This sets 4df to connect to the database
 
         // Create a array that will hold the classes that make up our 4df data model
-        List<Class> myModel = new ArrayList<>();
+        List<Class> myModel = new ArrayList<>(); // You must add models to the DB for them to be added to the database.
 
         // Add our 2 classes
-        myModel.add(Driver.class);
+        myModel.add(Driver.class); // The .class syntax refers to the actual class
         myModel.add(Car.class);
 
         // call the initialization of library!
-        FdfServices.initializeFdfDataModel(myModel);
+        FdfServices.initializeFdfDataModel(myModel); // pass your list into the initialized data model and then it is created in the DB.
 
         // insert some demo data
         try {
@@ -46,50 +48,50 @@ public class BlackCarService {
      */
     private static void setOptionalSettings() {
 
-        // get the 4dflib settings singleton
+        // get the 4dflib settings singleton (think ConnectionUtil)
         FdfSettings fdfSettings = FdfSettings.getInstance();
 
         // set the database type and name and connection information
         // PostgreSQL settings
-        //fdfSettings.PERSISTENCE = DatabaseUtil.DatabaseType.POSTGRES;
-        //fdfSettings.DB_PROTOCOL = DatabaseUtil.DatabaseProtocol.JDBC_POSTGRES;
+        fdfSettings.PERSISTENCE = DatabaseUtil.DatabaseType.POSTGRES;
+        fdfSettings.DB_PROTOCOL = DatabaseUtil.DatabaseProtocol.JDBC_POSTGRES;
 
         // postgres default root user
         // root user settings are only required for initial database creation.  Once the database is created you
         // should remove this information
-        //fdfSettings.DB_ROOT_USER = "postgres";
+        fdfSettings.DB_ROOT_USER = "postgres";
 
         // MySQL settings
         //fdfSettings.PERSISTENCE = DatabaseUtil.DatabaseType.MYSQL;
         //fdfSettings.DB_PROTOCOL = DatabaseUtil.DatabaseProtocol.JDBC_MYSQL;
 
         // MariaDB settings
-        fdfSettings.PERSISTENCE = DatabaseUtil.DatabaseType.MARIADB;
-        fdfSettings.DB_PROTOCOL = DatabaseUtil.DatabaseProtocol.JDBC_MARIADB;
+//        fdfSettings.PERSISTENCE = DatabaseUtil.DatabaseType.MARIADB;
+//        fdfSettings.DB_PROTOCOL = DatabaseUtil.DatabaseProtocol.JDBC_MARIADB;
 
         // MariaDB and MySQL default
         // root user settings are only required for initial database creation.  Once the database is created you
         // should remove this information
-        fdfSettings.DB_ROOT_USER = "root";
+//        fdfSettings.DB_ROOT_USER = "root";
 
         // root user password
-        fdfSettings.DB_ROOT_PASSWORD = "";
+        fdfSettings.DB_ROOT_PASSWORD = "postgres"; // changed from ""
 
         // Database encoding
         fdfSettings.DB_ENCODING = DatabaseUtil.DatabaseEncoding.UTF8;
 
         // Application Database name
-        fdfSettings.DB_NAME = "blackcardemo";
+        fdfSettings.DB_NAME = "tester";
 
         // Database host
         fdfSettings.DB_HOST = "localhost";
 
         // Port is not required for DB defaults can be changed when needed
-        // fdfSettings.DB_PORT = 3306;
+         fdfSettings.DB_PORT = 5432;
 
         // Database user information
-        fdfSettings.DB_USER = "blackcar";
-        fdfSettings.DB_PASSWORD = "blackcarpass";
+        fdfSettings.DB_USER = "postgres";
+        fdfSettings.DB_PASSWORD = "postgres";
 
 
 
@@ -113,7 +115,7 @@ public class BlackCarService {
     }
 
     private static void insertSomeData() throws InterruptedException {
-        DriverService ds = new DriverService();
+        DriverService ds = new DriverService(); // Create an instance of both services
         CarService cs = new CarService();
 
         // create a few of drivers
@@ -141,16 +143,16 @@ public class BlackCarService {
         brian.phoneNumber = "845-555-1114";
         brian = ds.saveDriver(brian);
 
-        Car mufasa = new Car();
-        mufasa.name = "Mufasa";
-        mufasa.color = "Teal";
-        mufasa.isInNeedOfRepair = false;
-        mufasa.description = "Total awesomeness";
-        mufasa.make = CarMake.PONTIAC;
-        mufasa.model = "Trans Am";
-        mufasa.year = 1983;
-        mufasa.currentDriverId = brian.id;
-        cs.saveCar(mufasa);
+        Car speedy = new Car();
+        speedy.name = "Speedy";
+        speedy.color = "Teal";
+        speedy.isInNeedOfRepair = false;
+        speedy.description = "Total awesomeness";
+        speedy.make = CarMake.PONTIAC;
+        speedy.model = "Trans Am";
+        speedy.year = 1983;
+        speedy.currentDriverId = brian.id;
+        cs.saveCar(speedy);
 
         Car ss = new Car();
         ss.name = "sliver ss";
@@ -219,7 +221,7 @@ public class BlackCarService {
         }
         
 
-        // assign me to drive
+        // assign Brian to drive
         pbox.currentDriverId = brian.id;
         // Wait a few seconds
         Thread.sleep(3000);
