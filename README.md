@@ -53,16 +53,17 @@ PostgreSQL: (uncomment) and remove / comment out the MySQL ones
 
 <h2>How it works...</h2>
 If you go to MariaDB (or whatever database you used, for the purpose of brevity I will be showing Maria / MySQL commands here.) and issue:
+
 ```SQL
 mysql> show databases
 ```
+
 You should see that there is a new database, called 'blackcardemo' <br>
 Now, if you view the tables, you will see that 4 tables were created..<br>
 
 ```SQL
 mysql> use blackcardemo;
 mysql> show tables;
-
 +------------------------+
 | Tables_in_blackcardemo |
 +------------------------+
@@ -71,7 +72,6 @@ mysql> show tables;
 | FdfSystem              |
 | FdfTenant              |
 +------------------------+
-
 4 rows in set (0.00 sec)
 ```
 
