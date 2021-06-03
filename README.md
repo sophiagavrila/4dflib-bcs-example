@@ -2,7 +2,7 @@
 >*Please Note*: This repository was cloned from [Brian Gormanly's repository](https://github.com/briangormanly/4dflib-bcs-example) and converted to a Maven Project with slight modifications for demo purposes.
 
 <h3>4DFLib example application!!!</h3>
-This is an example application showing how you can use [4dfLib ORM](https://github.com/briangormanly/4dflib) to manage all your applications data over time and it is an ORM tool to boot, abstracting away your database so you can concentrate on the really important things, like coding the next app that will take over the world!
+This is an example application showing how you can use 4dfLib ORM https://github.com/briangormanly/4dflib to manage all your applications data over time and it is an ORM tool to boot, abstracting away your database so you can concentrate on the really important things, like coding the next app that will take over the world!
 
 <h3>Instructions</h3>
 <strong>prerequisites</strong>
