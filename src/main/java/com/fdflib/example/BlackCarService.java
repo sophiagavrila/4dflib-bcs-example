@@ -30,7 +30,7 @@ public class BlackCarService {
         myModel.add(Car.class);
 
         // call the initialization of library!
-        FdfServices.initializeFdfDataModel(myModel);
+        FdfServices.initializeFdfDataModel(myModel); // pass your list into the initialized data model and then it is created in the DB.
 
         // insert some demo data
         try {
@@ -81,17 +81,17 @@ public class BlackCarService {
         fdfSettings.DB_ENCODING = DatabaseUtil.DatabaseEncoding.UTF8;
 
         // Application Database name
-        fdfSettings.DB_NAME = "blackcardemo";
+        fdfSettings.DB_NAME = "postgres";
 
         // Database host
         fdfSettings.DB_HOST = "localhost";
 
         // Port is not required for DB defaults can be changed when needed
-        // fdfSettings.DB_PORT = 3306;
+         fdfSettings.DB_PORT = 5432;
 
         // Database user information
-        fdfSettings.DB_USER = "blackcar";
-        fdfSettings.DB_PASSWORD = "blackcarpass";
+        fdfSettings.DB_USER = "postgres";
+        fdfSettings.DB_PASSWORD = "postgres";
 
 
 
@@ -115,7 +115,7 @@ public class BlackCarService {
     }
 
     private static void insertSomeData() throws InterruptedException {
-        DriverService ds = new DriverService();
+        DriverService ds = new DriverService(); // Create an instance of both services
         CarService cs = new CarService();
 
         // create a few of drivers
