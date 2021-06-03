@@ -21,6 +21,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+	<!-- This is the important part -->
 		<dependency>
 			<groupId>com.fdflib</groupId>
 			<artifactId>4dflib</artifactId>
