@@ -94,3 +94,6 @@ myModel.add(Car.class);
 // call the initialization of library!
 FdfServices.initializeFdfDataModel(myModel);
 ```
+
+# Why ORM?
+The Object of an Object Relational Mapping Software is to make the database interactions as transparent to you so that you can program in an object oriented manner without having to worry abou the differences between the object-model and the relational database model.

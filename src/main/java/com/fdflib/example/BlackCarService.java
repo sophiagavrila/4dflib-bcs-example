@@ -81,7 +81,7 @@ public class BlackCarService {
         fdfSettings.DB_ENCODING = DatabaseUtil.DatabaseEncoding.UTF8;
 
         // Application Database name
-        fdfSettings.DB_NAME = "postgres";
+        fdfSettings.DB_NAME = "tester";
 
         // Database host
         fdfSettings.DB_HOST = "localhost";
@@ -221,7 +221,7 @@ public class BlackCarService {
         }
         
 
-        // assign me to drive
+        // assign Brian to drive
         pbox.currentDriverId = brian.id;
         // Wait a few seconds
         Thread.sleep(3000);
